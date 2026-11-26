@@ -1,0 +1,6 @@
+# prod：默认关闭接口文档，防接口结构信息泄漏（审查 S1）
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false

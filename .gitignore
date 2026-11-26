@@ -1,0 +1,12 @@
+# 忽略前端依赖
+frontend/node_modules/
+frontend/dist/
+frontend/test-results/
+frontend/playwright-report/
+
+# 忽略后端构建产物
+backend/target/
+
+# 忽略本地环境配置
+.env
+.env.local

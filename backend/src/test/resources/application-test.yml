@@ -1,0 +1,15 @@
+# test：集成测试直连本地真实 MySQL 8（wanderchina_test，不存在时自动创建）。
+# 表结构由 Flyway 迁移初始化；测试类加 @Transactional 回滚 DML 夹具。
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/wanderchina_test?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# JWT 测试密钥：优先读环境变量，未注入时由 Spring Boot 运行期随机生成（不写任何字面量密钥）。
+# 仅 test profile 使用，生产只允许 ${JWT_SECRET}。
+wanderchina:
+  auth:
+    jwt:
+      secret: "${JWT_SECRET:${random.uuid}}"
